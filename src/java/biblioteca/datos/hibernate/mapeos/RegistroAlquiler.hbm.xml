@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="biblioteca.modelo.dominio.mapeos" table="REGISTROSALQUILERES">
+        <id name="codigoRegistro" type="integer">
+            <column name="CODIGOREGISTRO"/>
+            <generator class="increment"/>          
+        </id>
+        <property name="fecha" type="Date">
+            <column name="FECHA"/>
+        </property>
+        <property name="fechaDevolucion" type="Date">
+            <column name="FECHADEVOLUCION"/>
+        </property>
+        <property name="precioFinal" type="double">
+            <column name="PRECIOFINAL" precision="5" scale="2"/>
+        </property>
+        <many-to-one class="biblioteca.modelo.dominio.Cliente" fetch="join" name="cliente">
+            <column name="CLIENTEFK" precision="22" scale="0"/>
+        </many-to-one>
+        <many-to-one class="biblioteca.modelo.dominio.CopiaPelicula" fetch="join" name="copiaPelicula">
+            <column name="COPIAPELICULAFK" precision="22" scale="0"/>
+        </many-to-one>
+    </class>
+        
+</hibernate-mapping>
