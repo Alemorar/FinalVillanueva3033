@@ -2,28 +2,29 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="biblioteca.modelo.dominio.mapeos" table="CLIENTES">
+    <class name="biblioteca.modelo.dominio.Cliente" table="CLIENTES">
         <id name="codigo" type="integer">
             <column name="CODIGO"/>
-            <generator class="increment"/>          
+            <generator class="increment"/>            
         </id>
         <property name="apellido" type="string">
             <column name="APELLIDO" length="10"/>
         </property>
         <property name="nombres" type="string">
-            <column name="NOMBRES" length="15" />
+            <column name="NOMBRES" length="15"/>
         </property>
         <property name="eMail" type="string">
-            <column name="EMAIL" length="50" />
+            <column name="EMAIL" length="50"/>
         </property>
         <property name="fechaNacimiento" type="date">
-            <column name="FECHANACIMIENTO" length="15" />
+            <column name="FECHANACIMIENTO"/>
         </property>
         <property name="direccion" type="string">
-            <column name="DIRECCION" length="50" />
+            <column name="DIRECCION" length="50"/>
         </property>
         <property name="telefono" type="string">
-            <column name="TELEFONO" length="10" />
+            <column name="TELEFONO" length="10"/>
         </property>
-    </class>
+   </class>
+  
 </hibernate-mapping>
