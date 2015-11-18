@@ -22,5 +22,4 @@
             <column name="COPIAPELICULAFK" precision="22" scale="0"/>
         </many-to-one>
     </class>
-        
 </hibernate-mapping>

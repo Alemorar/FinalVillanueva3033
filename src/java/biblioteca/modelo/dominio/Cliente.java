@@ -24,6 +24,16 @@ import java.util.Date;
     public Cliente() {
     }
 
+    public Cliente(int codigo, String apellido, String nombres, String eMail, Date fechaNacimiento, String direccion, String telefono) {
+        this.codigo = codigo;
+        this.apellido = apellido;
+        this.nombres = nombres;
+        this.eMail = eMail;
+        this.fechaNacimiento = fechaNacimiento;
+        this.direccion = direccion;
+        this.telefono = telefono;
+    }
+
     public int getCodigo() {
         return codigo;
     }

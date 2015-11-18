@@ -5,13 +5,14 @@
  */
 package biblioteca.modelo.dominio;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author nahuel
  */
-public class RegistroAlquiler {
+public class RegistroAlquiler implements Serializable{
     private int codigoRegistro;
     private Date fecha;
     private Date fechaDevolucion;
@@ -20,6 +21,15 @@ public class RegistroAlquiler {
     private CopiaPelicula copiaPelicula;
 
     public RegistroAlquiler() {
+    }
+
+    public RegistroAlquiler(int codigoRegistro, Date fecha, Date fechaDevolucion, double precioFinal, Cliente cliente, CopiaPelicula copiaPelicula) {
+        this.codigoRegistro = codigoRegistro;
+        this.fecha = fecha;
+        this.fechaDevolucion = fechaDevolucion;
+        this.precioFinal = precioFinal;
+        this.cliente = cliente;
+        this.copiaPelicula = copiaPelicula;
     }
 
     public int getCodigoRegistro() {

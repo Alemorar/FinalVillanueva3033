@@ -5,11 +5,13 @@
  */
 package biblioteca.modelo.dominio;
 
+import java.io.Serializable;
+
 /**
  *
  * @author nahuel
  */
-public class CopiaPelicula {
+public class CopiaPelicula implements Serializable{
     private int codigo;
     private String nombre;
     private String genero;
@@ -18,6 +20,15 @@ public class CopiaPelicula {
     private boolean estado;
 
     public CopiaPelicula() {
+    }
+
+    public CopiaPelicula(int codigo, String nombre, String genero, double precioAlquiler, boolean estadoAlquilado, boolean estado) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.genero = genero;
+        this.precioAlquiler = precioAlquiler;
+        this.estadoAlquilado = estadoAlquilado;
+        this.estado = estado;
     }
 
     public int getCodigo() {
