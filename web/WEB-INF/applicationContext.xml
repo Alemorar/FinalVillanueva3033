@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
--<beans xsi:schemaLocation="http://www.springframework.org/schema/beans 
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans 
 http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/aop 
 http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx 
 http://www.springframework.org/schema/tx/spring-tx-4.0.xsd http://www.springframework.org/schema/context 
@@ -12,11 +12,9 @@ http://www.springframework.org/schema/context/spring-context.xsd"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xmlns="http://www.springframework.org/schema/beans">
     
-    <context:annotation-config/>
-    <!-- Permite usar anotaciones en la configuración de las entidades.-->
+    <context:annotation-config/><!-- Permite usar anotaciones en la configuración de las entidades.-->
     
-    <context:component-scan base-package="biblioteca"/>
-    <!-- paquetes donde scaneará en busca de anotaciones-->
+    <context:component-scan base-package="biblioteca"/><!-- paquetes donde scaneará en busca de anotaciones-->
     
     <!-- ============ CONFIGURACION DE HIBERNATE ============ -->
     <bean id="dataSource"
@@ -39,8 +37,8 @@ http://www.springframework.org/schema/context/spring-context.xsd"
             <list>
                 <value>biblioteca/datos/hibernate/mapeos/Cliente.hbm.xml</value>
                 <value>biblioteca/datos/hibernate/mapeos/CopiaPelicula.hbm.xml</value>
-                <value>biblioteca/datos/hibernate/mapeos/RegistroAlquiler.hbm.xml</value>
-                <value>biblioteca/datos/hibernate/mapeos/Usuario.hbm.xml</value>
+<!--                <value>biblioteca/datos/hibernate/mapeos/RegistroAlquiler.hbm.xml</value>
+                <value>biblioteca/datos/hibernate/mapeos/Usuario.hbm.xml</value>-->
             </list>
         </property>
     </bean>
@@ -51,25 +49,29 @@ http://www.springframework.org/schema/context/spring-context.xsd"
     </bean>
     
     <tx:annotation-driven transaction-manager="transactionManager"/>
+    
     <!-- ============ INYECCCION DE DEPENDENCIAS DE SPRING ============ -->
     <!-- Inyeccion de Java Beans del dominio-->
     
     <bean id="cliente" class="biblioteca.modelo.dominio.Cliente"/>
     <bean id="copiaPelicula" class="biblioteca.modelo.dominio.CopiaPelicula"/>
-    <bean id="registroAlquiler" class="biblioteca.modelo.dominio.RegistroAlquiler"/>
-    <bean id="usuario" class="biblioteca.modelo.dominio.Usuario"/>
+<!--    <bean id="registroAlquiler" class="biblioteca.modelo.dominio.RegistroAlquiler">
+        <property name="cliente" ref="cliente"/>
+        <property name="copiaPelicula" ref="copiaPelicula"/>
+    </bean>
+    <bean id="usuario" class="biblioteca.modelo.dominio.Usuario"/>-->
 
     <!-- Inyeccion de DAO´s -->
     <bean id="clienteDAO" class="biblioteca.datos.hibernate.dao.imp.ClienteDAOImp">
-        <property ref="sessionFactory" name="sessionFactory"/>
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <bean id="copiaPeliculaDAO" class="biblioteca.datos.hibernate.dao.imp.CopiaPeliculaDAOImp">
-        <property ref="sessionFactory" name="sessionFactory"/>
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-    <bean id="registroAlquilerDAO" class="biblioteca.datos.hibernate.dao.imp.RegistroAlquilerDAOImp">
-        <property ref="sessionFactory" name="sessionFactory"/>
+   <bean id="registroAlquilerDAO" class="biblioteca.datos.hibernate.dao.imp.RegistroAlquilerDAOImp">
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <bean id="usuarioDAO" class="biblioteca.datos.hibernate.dao.imp.UsuarioDAOImp">
-        <property ref="sessionFactory" name="sessionFactory"/>
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 </beans>
