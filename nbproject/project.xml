@@ -31,15 +31,15 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-<<<<<<< HEAD
-                    <file>${file.reference.all-themes-1.0.10.jar}</file>
+                    <file>${file.reference.all-themes-1.0.10.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.ojdbc7.jar}</file>
-=======
-                    <file>${libs.ojdbc7.classpath}</file>
->>>>>>> origin/master
+                    <file>${file.reference.ojdbc7.jar-1}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.com.springsource.org.aopalliance-1.0.0.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
