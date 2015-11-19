@@ -7,10 +7,10 @@
             <column name="CODIGOREGISTRO"/>
             <generator class="increment"/>          
         </id>
-        <property name="fecha" type="Date">
+        <property name="fecha" type="date">
             <column name="FECHA"/>
         </property>
-        <property name="fechaDevolucion" type="Date">
+        <property name="fechaDevolucion" type="date">
             <column name="FECHADEVOLUCION"/>
         </property>
         <property name="precioFinal" type="double">

@@ -37,8 +37,8 @@ http://www.springframework.org/schema/context/spring-context.xsd"
             <list>
                 <value>biblioteca/datos/hibernate/mapeos/Cliente.hbm.xml</value>
                 <value>biblioteca/datos/hibernate/mapeos/CopiaPelicula.hbm.xml</value>
-<!--                <value>biblioteca/datos/hibernate/mapeos/RegistroAlquiler.hbm.xml</value>
-                <value>biblioteca/datos/hibernate/mapeos/Usuario.hbm.xml</value>-->
+                <value>biblioteca/datos/hibernate/mapeos/RegistroAlquiler.hbm.xml</value>
+                <value>biblioteca/datos/hibernate/mapeos/Usuario.hbm.xml</value>
             </list>
         </property>
     </bean>
@@ -54,12 +54,14 @@ http://www.springframework.org/schema/context/spring-context.xsd"
     <!-- Inyeccion de Java Beans del dominio-->
     
     <bean id="cliente" class="biblioteca.modelo.dominio.Cliente"/>
-    <bean id="copiaPelicula" class="biblioteca.modelo.dominio.CopiaPelicula"/>
-<!--    <bean id="registroAlquiler" class="biblioteca.modelo.dominio.RegistroAlquiler">
+    <bean id="copiaPelicula" class="biblioteca.modelo.dominio.CopiaPelicula">
+        <!--<property name="hibernate.query.substitutions">true 1, false 0</property>-->
+    </bean>
+    <bean id="registroAlquiler" class="biblioteca.modelo.dominio.RegistroAlquiler">
         <property name="cliente" ref="cliente"/>
         <property name="copiaPelicula" ref="copiaPelicula"/>
     </bean>
-    <bean id="usuario" class="biblioteca.modelo.dominio.Usuario"/>-->
+    <bean id="usuario" class="biblioteca.modelo.dominio.Usuario"/>
 
     <!-- Inyeccion de DAO´s -->
     <bean id="clienteDAO" class="biblioteca.datos.hibernate.dao.imp.ClienteDAOImp">

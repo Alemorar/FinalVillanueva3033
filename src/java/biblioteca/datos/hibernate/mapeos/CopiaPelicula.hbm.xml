@@ -16,11 +16,11 @@
         <property name="precioAlquiler" type="double">
             <column name="PRECIOALQUILER" precision="5" scale="2"/>
         </property>
-<!--        <property name="estadoAlquilado" type="java.lang.Boolean">
-            <column name="ESTADOALQUILADO" type="integer"/>
+        <property name="estadoAlquilado" type="yes_no">
+            <column name="ESTADOALQUILADO" />
         </property>
-        <property name="estado" type="java.lang.Boolean">
-            <column name="ESTADO" type="integer"/>
-        </property>-->
+        <property name="estado" type="yes_no">
+            <column name="ESTADO"/>
+        </property>
     </class>
 </hibernate-mapping>
