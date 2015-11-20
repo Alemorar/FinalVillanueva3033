@@ -3,15 +3,30 @@
     position: relative;
     background-color: #036fab;
     color: white;
-    padding: 5px;
+    padding: 2px;
     margin: 0px 0px 10px 0px;
 }
 
 #bottom {
     position: relative;
     background-color: #c2dfef;
-    padding: 5px;
+    padding: 2px;
     margin: 10px 0px 0px 0px;
+}
+
+#contenedor {
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.7);
+    margin: 0 auto;
+    padding: 2px;
+    text-align: left;
+    width: 960px;
+}
+
+#titulo {
+    float: left;
+    width: 960px;
+    margin-top: 3%;
+    color: crimson;
 }
 
 #left {
@@ -47,15 +62,15 @@
 }
 
 #top a:link, #top a:visited {
-  color: white;
-  font-weight : bold;
-  text-decoration: none;
+    color: #05d200;
+    font-weight : bold;
+    text-decoration: none;
 }
 
 #top a:link:hover, #top a:visited:hover  {
-  color: black;
-  font-weight : bold;
-  text-decoration : underline;
+    color: #05d200;
+    font-weight : bold;
+    text-decoration : underline;
 }
 
 

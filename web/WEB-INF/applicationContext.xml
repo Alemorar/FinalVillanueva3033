@@ -55,7 +55,6 @@ http://www.springframework.org/schema/context/spring-context.xsd"
     
     <bean id="cliente" class="biblioteca.modelo.dominio.Cliente"/>
     <bean id="copiaPelicula" class="biblioteca.modelo.dominio.CopiaPelicula">
-        <!--<property name="hibernate.query.substitutions">true 1, false 0</property>-->
     </bean>
     <bean id="registroAlquiler" class="biblioteca.modelo.dominio.RegistroAlquiler">
         <property name="cliente" ref="cliente"/>
