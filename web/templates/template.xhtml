@@ -16,9 +16,10 @@
     <h:body>
 
         <div id="top">
+
             <ui:insert name="top">
-                <h3>Aqui va el encabezado</h3>
-                <h:form>  
+            <h3>Aqui va el encabezado</h3>
+            <h:form>  
                     <p:growl id="messages"/>
                     <p:menubar>
                         <p:submenu label="Registro Estacionamiento" icon="ui-icon-circle-arrow-e">
@@ -30,11 +31,12 @@
                         <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
 
                         <f:facet name="options">
-                            <p:inputText style="margin-right:10px" placeholder="Search"/>
-                            <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+                            <p:outputLabel value="Bienvenido... "/>
+<!--                            <p:inputText style="margin-right:10px" placeholder="Search"/>-->
+                            <p:commandButton value="Logout" type="button" icon="ui-icon-extlink" />
                         </f:facet>
                     </p:menubar>
-                </h:form>
+            </h:form>
             </ui:insert>
         </div>
 
