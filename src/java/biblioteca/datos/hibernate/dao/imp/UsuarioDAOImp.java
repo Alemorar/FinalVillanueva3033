@@ -14,11 +14,16 @@ import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
  *
  * @author alejandro
  */
-public class UsuarioDAOImp extends HibernateDaoSupport implements IUsuarioDAO, Serializable{
+public class UsuarioDAOImp extends HibernateDaoSupport implements IUsuarioDAO, Serializable {
 
     @Override
-    public void agregarUsuario(Usuario usuario) {
+    public Usuario validarUsuario(String nombreUsuario, String password) {
+        Usuario u = null;
+        return u;
+    }
+
+    @Override
+    public void modificarUsuario(Usuario usuario) {
         getHibernateTemplate().save(usuario);
     }
-    
 }
