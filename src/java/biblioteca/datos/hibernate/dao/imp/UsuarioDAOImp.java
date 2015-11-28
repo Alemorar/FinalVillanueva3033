@@ -19,6 +19,7 @@ public class UsuarioDAOImp extends HibernateDaoSupport implements IUsuarioDAO, S
     @Override
     public Usuario validarUsuario(String nombreUsuario, String password) {
         Usuario u = null;
+        
         return u;
     }
 

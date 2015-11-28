@@ -7,18 +7,26 @@
 
     <body>
 
-        <ui:composition template="./../templates/template.xhtml">
+        <ui:composition template="./templates/template.xhtml">
 
-            <ui:define name="top">
-                top
-            </ui:define>
+            <!--<ui:define name="top"><h3>Sistema Gestion Alquiler de Copias</h3></ui:define>-->
 
             <ui:define name="content">
                 <h:form id="frmLoggin">
-                    <p:growl id="mensajeGeneral"/>
-                </h:form>
+                    <p:growl id="mensajeGeneral" showDetail="false" sticky="false"/>
+                    <p:panel header="Acceso al Sistema Biblioteca" footer="APU - FIUNJU">
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel for="txtNombreUsuario" value="Ingrese el Usuario"/>
+                            <p:inputText id="txtNombreUsuario" required="true" value="#{logginFormBean.nombreUsuario}"/>
+                            <p:outputLabel for="txtPassword" value="Ingrese el Password"/>
+                            <p:password id="txtPassword" required="true" value="#{logginFormBean.password}"/>
+                            <h:panelGroup/>
+                            <p:commandButton id="btnValidar" value="Validar Usuario" update="frmLoggin"
+                                             action="#{logginFormBean.validarUsuario()}"/>
+                        </h:panelGrid>
+                    </p:panel>
+                </h:form>                
             </ui:define>
-
             <ui:define name="bottom">
                 bottom
             </ui:define>

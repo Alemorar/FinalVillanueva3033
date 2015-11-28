@@ -29,18 +29,42 @@ public class LogginFormBean {
     public LogginFormBean() {
     }
     
-    public void validarUsuario(){
-        //String resultado = null;
+    public String validarUsuario(){
+        String resultado = null;
         IUsuarioDAO usuarioDAO = new UsuarioDAOImp();
         Usuario usuario = usuarioDAO.validarUsuario(nombreUsuario, password);
         if(usuario != null){
-            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario válido", "Usuario válido");
+            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario válido", "Usuario válido");
             FacesContext.getCurrentInstance().addMessage(null, facesMessage);
+            
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("Usuario Válido", usuario);
+            resultado = "menu?faces-redirect=true";
         }else{
-            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Credenciales invalidas", "Credenciales invalidas");
+            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Credenciales Inválidas", "Credenciales Inválidas");
             FacesContext.getCurrentInstance().addMessage(null, facesMessage);
         }
-        //return resultado;
+        return resultado;
+    }
+    
+    public String getNombreUsuarioValidado(){
+        Usuario usuario = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuarioValidado");
+        return usuario.getNombreUsuario();
+    }
+    
+    public String cerrarSesion(){
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sesion Cerrada", "Sesion Cerrada");
+        FacesContext.getCurrentInstance().addMessage(null, facesMessage);
+        String resultado = "/tcLoguin?faces-redirect=true";
+        return resultado;
+    }
+    
+    public boolean verificarSesion(){
+        boolean sesionValida = false;
+        if(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuarioValidado") != null){
+            sesionValida = true;
+        }
+        return sesionValida;
     }
 
     public String getNombreUsuario() {
