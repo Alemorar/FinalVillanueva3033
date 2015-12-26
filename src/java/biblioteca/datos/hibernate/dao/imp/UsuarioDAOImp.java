@@ -19,7 +19,15 @@ public class UsuarioDAOImp extends HibernateDaoSupport implements IUsuarioDAO, S
     @Override
     public Usuario validarUsuario(String nombreUsuario, String password) {
         Usuario u = null;
-        
+        boolean esHallado = false;
+        for(int i = 0; i < ListadoUsuarios.listadoUsuario.length && esHallado != true; i++){
+            Usuario usuarioDelListado = ListadoUsuarios.listadoUsuario[i];
+            if(usuarioDelListado != null && usuarioDelListado.getNombreUsuario().equals(nombreUsuario) &&
+                    usuarioDelListado.getPassword().equals(password)){
+                u = usuarioDelListado;
+                esHallado = true;
+            }
+        }
         return u;
     }
 

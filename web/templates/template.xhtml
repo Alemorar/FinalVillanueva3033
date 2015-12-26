@@ -14,38 +14,35 @@
     </h:head>
 
     <h:body>
-
         <div id="top">
-
             <ui:insert name="top">
-            <h3>Sistema Gestion Alquiler de Copias</h3>
-            <h:form rendered="#{logginFormBean.verificarSesion()}">  
-                    <p:growl id="messages"/>
-                    <p:menubar>
-                        <p:submenu label="Registro Estacionamiento" icon="ui-icon-circle-arrow-e">
-                            <p:menuitem value="Registrar Entrada"/>
-                            <p:menuitem value="Registrar Salida"/>
-                        </p:submenu>
-                        <p:menuitem value="Registrar Guia"/>
 
-                        <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
-
-                        <f:facet name="options">
-                            <p:outputLabel value="Bienvenido #{logginFormBean.nombreUsuarioValidado}"/>
-<!--                            <p:inputText style="margin-right:10px" placeholder="Search"/>-->
-                            <p:commandButton value="Cerrar Sesión" type="button" icon="ui-icon-extlink"
-                                             action="#{logginFormBean.cerrarSesion()}"/>
-                        </f:facet>
-                    </p:menubar>
-            </h:form>
-            
-            <p:panel rendered="#{logginFormBean.verificarSesion() eq false}">
+                <h3>Sistema Gestion Alquiler de Copias</h3>
+                
                 <h:form>
-                    <p:outputLabel value="Sesion no Iniciada "/>
-                    <p:commandButton value="Iniciar Sesión" action="/tcLoguin?faces-redirect=true"/>
+                
+                    <p:growl id="messages"/>
+                    <p:panel>
+                        <p:menubar>
+                            <p:submenu label="Registro Estacionamiento" icon="ui-icon-circle-arrow-e">
+                                <p:menuitem value="Registrar Entrada"/>
+                                <p:menuitem value="Registrar Salida"/>
+                            </p:submenu>
+                            <p:menuitem value="Registrar Guia"/>
+
+                            <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
+
+                            <f:facet name="options">
+                                <p:outputLabel value="Bienvenido #{logginFormBean.nombreUsuarioValidado} "/>
+                                <p:commandButton value="Cerrar Sesión" type="button" icon="ui-icon-extlink"
+                                                 action="#{logginFormBean.cerrarSesion()}"/>
+                            </f:facet>
+                        </p:menubar>
+                    </p:panel>
                 </h:form>
-            </p:panel>
-            
+
+               
+
             </ui:insert>
         </div>
 
