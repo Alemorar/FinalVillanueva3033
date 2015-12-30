@@ -28,33 +28,13 @@ public class LogginFormBean {
      */
     public LogginFormBean() {
     }
-    
-    /*Hola la forma en que lo implementas esta correcta, lo que si en el metodo validarUsuario
-    del usuarioDaoImp deberias usar un objeto semejante que te permita hacer el where
-    para encontrar el usuario en una tabla de una base de datos.
-    para esto te paso un codigo que te podria servir (hibernate de Spring),
-    no esta testeado pero te lo escribo para que lo revises en base a tus propios datos*/
-
-    /*public Usuario validarUsuario() {
-        DetachedCriteria  dc = DetachedCriteria.forClass(Usuario.class);
-        dc.add(Restrictions.eq("nombreUsu", "pepe"));
-        dc.add(Restrictions.eq("claveUsu", "12345"));
-        ArrayList<Usuario> resu = (ArrayList)getHibernateTemplate().findByCriteria(dc);
-        
-        //aqui deberrias poner condigo para ver si resu es null
-        //en este caso no se encontraron usuarios con los parametros de otro modo retornas el primer elemento
-        return resu.get(0);
-    }*/   
-
-    /*En este caso nombreUsu y claveUsu son propiedades de la clase Usuario, si es que 
-    se encuentra un usuario con los datos que pasaste como parametros se retorna el elemento
-    en la posición cero de "resu", en caso de que no encuentre usuario, se debería retornar null,
-    para que vos lo interpretes en el metodo llamador del formbean.*/
 
     public String validarUsuario(){
-        String resultado = null;
-        IUsuarioDAO usuarioDAO = new UsuarioDAOImp();
+        System.out.println("Aca apretamos el boton validar usuario");
+        String resultado = null;System.out.println("declaramos resultado como String e inicializamos null");
+        IUsuarioDAO usuarioDAO = new UsuarioDAOImp();System.out.println("instanciamos usuarioDAO tipo IusuarioDAO");
         Usuario usuario = usuarioDAO.validarUsuario(nombreUsuario, password);
+        System.out.println("estamos mandando usuario y pass a iusuariodao que lo pasa a usuariodaoimpl");
         if(usuario != null){
             FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario válido", "Usuario válido");
             FacesContext.getCurrentInstance().addMessage(null, facesMessage);
@@ -94,6 +74,7 @@ public class LogginFormBean {
     }
 
     public void setNombreUsuario(String nombreUsuario) {
+        System.out.println("seteamos el nombre de usuario");
         this.nombreUsuario = nombreUsuario;
     }
 
@@ -102,6 +83,7 @@ public class LogginFormBean {
     }
 
     public void setPassword(String password) {
+        System.out.println("seteamos el password");
         this.password = password;
     }
     
